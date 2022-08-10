@@ -1,0 +1,134 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-09-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+
+    
+    <lightning-card variant="Narrow">
+        <lightning-layout multiple-rows>
+            
+            <lightning-layout-item
+                size="12"
+                padding="around-small"
+            >
+            
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                    <tr class="slds-line-height_reset">
+                        <td colspan="3">
+                            <div class="slds-form-element slds-form-element_horizontal" >
+                                <label class="slds-form-element__label"><strong>Case Filter</strong></label>
+                                
+                            </div>
+                            
+                            
+                        </td>
+                        
+                    </tr>
+                </thead>
+                    <thead>
+                        
+                        
+                        <tr class="slds-line-height_reset">
+                            <td colspan="4">
+                                <div class="slds-form-element slds-form-element_horizontal" >
+                                    <label class="slds-form-element__label"><strong>Assignee</strong></label>
+                                    
+                                </div>
+                                <div>
+                                     <lightning-combobox
+                                    name="Anm"
+                                    value={Anm}
+                                    placeholder="--Select A Value--"
+                                    options={anmPickListValues}
+                                    onchange={handleChange}
+                                    
+                                ></lightning-combobox>
+                            </div>                              
+                            
+                            <lightning-radio-group 
+                                        options={options}
+                                        value={value}
+                                        type="radio"></lightning-radio-group>
+                                     
+                        
+                            </td>
+                            
+                                
+                                
+                            
+                            <td colspan="3">
+                                <div class="slds-form-element slds-form-element_horizontal" >
+                                    <label class="slds-form-element__label"><strong>Select Case Type</strong></label>
+                                 </div>
+                                 <div>  
+                                <lightning-combobox
+                                    name="typu"
+                                    value={typu}
+                                    placeholder="--Select A Value--"
+                                    options={caseTypePickListValues}
+                                    onchange={handleChange}
+                                ></lightning-combobox>  
+                            
+                                </div>
+
+                                <div class="slds-form-element slds-form-element_horizontal" >
+                                    <label class="slds-form-element__label"><strong>Select Case Status</strong></label>
+                                  </div>
+                                  <div>
+                                    <lightning-combobox
+                                    name="status"
+                                    value={status}
+                                    placeholder="--Select A Value--"
+                                    options={statusPickListValues}
+                                    onchange={handleChange}
+                                    
+                                    ></lightning-combobox>
+                                </div>
+                             </td>
+                             
+                            
+                        </tr>
+                        <tr class="slds-line-height_reset">
+                            <td colspan="7">
+                                <div class="slds-float_right">
+                                <lightning-button
+                                    variant="base"
+                                    label="Clear Filters"
+                                    title="Clear Filters"
+                                    onclick={clearSearch}
+                                ></lightning-button>
+                                </div>
+                                
+                            </td>
+                            
+                        </tr>
+                        
+                    </thead>
+    
+                </table>
+
+            </lightning-layout-item>
+
+            
+        </lightning-layout>
+
+
+    </lightning-card>
+
+
+
+    <c-casescreenshotchild-l-w-c 
+    typu={typu}
+    rst={rst}
+    cat={cat}
+    status={status}>
+
+ 
+    </c-casescreenshotchild-l-w-c>
+   
+</template>
