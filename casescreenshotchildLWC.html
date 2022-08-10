@@ -1,0 +1,63 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-09-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+  
+<lightning-card>
+  <template if:true={rst}>
+    <div><strong>Total Records Found :{len}</strong></div>
+    <div>           
+    <lightning-datatable key-field="id"  
+        data={data}  
+        columns={cols} 
+        sorted-by={sortBy}
+        sorted-direction={sortDirection}
+        onrowaction={handleRowAction}
+        onsort={handleSortdata}
+        
+        show-row-number-column="true"></lightning-datatable></div> 
+    <div  class="slds-align_absolute-center" if:true={errorMsg}><p style="color: red;"><strong>{errorMsg}</strong></p></div>
+
+</template>
+
+
+<template if:true={rst}>
+  <div class="slds-form-element slds-form-element_horizontal" >
+<label class="slds-form-element__label"><strong>Cases Per Page</strong></label>
+<lightning-combobox name="progress" label="Record to Display"  value={vpagesize}  dropdown-alignment='bottom-right'  placeholder=""
+    options={comboBoxOptions}
+    onchange={handleLimitChange}
+    variant='label-hidden'> </lightning-combobox></div>
+  </template>
+
+</lightning-card>
+
+
+
+<lightning-card>
+  <template if:true={rst}>
+  <lightning-layout>
+      <lightning-layout-item>
+          <lightning-button label="Previous" icon-name="utility:chevronleft" 
+          onclick={previousHandler}></lightning-button>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="grow">
+          <p class="slds-m-around_medium" align="center"> Records {startingRecord} to {endingRecord}. Page {page} of {totalPage} </p>
+      </lightning-layout-item>
+      <lightning-layout-item>
+          <lightning-button label="Next" icon-name="utility:chevronright"
+            onclick={nextHandler}></lightning-button>
+      </lightning-layout-item>
+  </lightning-layout>  
+</template>
+</lightning-card>
+
+
+</template>
+
+
+
